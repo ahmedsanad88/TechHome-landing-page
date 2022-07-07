@@ -1,3 +1,7 @@
+
+<img width="1280" alt="project-banner" src="https://user-images.githubusercontent.com/57454543/177862593-cb94449c-1934-46a2-8950-3af51da776c7.png">
+
+
 # TechHome-landing-page (Mobile-Friendly)🏠
 
 ![GitHub](https://img.shields.io/github/license/ahmedsanad88/TechHome-landing-page)
