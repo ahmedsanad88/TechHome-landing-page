@@ -1,6 +1,6 @@
 # TechHome-landing-page (Mobile-Friendly)🏠
 
-![GitHub](https://img.shields.io/github/license/navendu-pottekkat/awesome-readme)
+![GitHub](https://img.shields.io/github/license/ahmedsanad88/TechHome-landing-page)
 
 <!-- Describe your project in brief -->
 
@@ -14,13 +14,8 @@ Landing page for a tech company provider (project one for [Udacity](https://emc.
 
 # Demo-Preview👨🏽‍🏫
 
-<!-- Add a demo for your project -->
+https://user-images.githubusercontent.com/57454543/177859000-25b21758-1d41-4777-812f-d1c80cfe51a9.mp4
 
-<!-- After you have written about your project, it is a good idea to have a demo/preview(**video/gif/screenshots** are good options) of your project so that people can know what to expect in your project. You could also add the demo in the previous section with the product description.
-
-Here is a random GIF as a placeholder.
-
-![Random GIF](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif) -->
 
 # Table of contents🗂
 
