@@ -1,0 +1,680 @@
+/* ---- Base Rules ---- */
+:root {
+  --mainColor: #ffc725;
+  --whiteColor: #fff;
+}
+
+body {
+  background: rgb(136, 203, 171);
+  background: linear-gradient(
+    0deg,
+    rgba(136, 203, 171, 1) 0%,
+    rgba(0, 13, 60, 1) 100%
+  );
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--whiteColor, #fff);
+  -moz-scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  -moz-overscroll-behavior: contain;
+  overscroll-behavior: contain;
+  overflow-x: hidden;
+}
+
+/* Typography General*/
+h1 {
+  font-size: 3em;
+  margin: 0.2em 0;
+}
+
+@media only screen and (min-width: 35em) {
+  h1 {
+    font-size: 4em;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+}
+
+h2 {
+  border-bottom: 1px solid #cc1;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3em;
+  color: var(--whiteColor, #fff);
+}
+
+p {
+  line-height: 1.6em;
+  color: #eee;
+  margin: 0.3em 0;
+}
+
+/* ---- Module Rules ---- */
+
+/* Navigation Styles*/
+
+/* ==== back to top button ==== */
+#back__to__top {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: hsla(45, 100%, 57%, 0.5);
+  color: #000;
+  font-size: 1.9em;
+  display: grid;
+  place-content: center;
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  z-index: 100;
+  cursor: pointer;
+  display: none;
+}
+
+#back__to__top:hover {
+  background-color: hsla(45, 100%, 57%, 1);
+}
+
+/* Header Styles */
+.page__header {
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  transition: transform 1s ease-in-out;
+}
+
+.navbar__menu {
+  /* perspective: 600px; */
+  position: relative;
+  width: 100%;
+}
+.navbar__menu ul {
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav__icon__container {
+  display: none;
+}
+
+.navbar__menu ul li {
+  display: inline-block;
+  opacity: 1;
+}
+
+/* mobile navigation */
+
+@media screen and (max-width: 520px) {
+  /* .page__header {
+    margin-left: 10em;
+    margin-right: auto;
+  } */
+
+  .nav__icon__container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 1em;
+  }
+
+  .nav__icon__container div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav__icon {
+    width: 20px;
+    height: 3px;
+    border-radius: 10px;
+    background-color: var(--mainColor, #ffc725);
+    margin-bottom: 0.2em;
+    cursor: pointer;
+  }
+
+  .navbar__menu ul {
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    transform-origin: top center;
+    transition: transform 1s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+  }
+  .navbar__menu ul li {
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    transition-delay: 200ms;
+  }
+
+  .animate__nav {
+    transform: rotateX(90deg);
+  }
+}
+
+.navbar__menu .menu__link {
+  display: block;
+  padding: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--whiteColor, #fff);
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.navbar__menu .menu__link:hover,
+.navbar__menu .menu__link:focus {
+  background-color: hsl(45, 80%, 40%);
+  transition: ease 0.3s all;
+  outline: none;
+}
+
+/* ===== landing page ===== */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main header {
+  min-height: calc(100vh - 52px);
+  width: 100vw;
+  margin-top: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main header p {
+  text-align: center;
+}
+
+.company__name {
+  text-transform: uppercase;
+  color: var(--mainColor, #ffc725);
+  font-size: 1.6rem;
+}
+
+.contact__button {
+  outline: none;
+  margin-top: 1em;
+  background-color: transparent;
+  border: 1px solid var(--mainColor, #ffc725);
+  color: var(--mainColor, #ffc725);
+  padding: 1em 1.5em;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.contact__button:hover,
+.contact__button:focus,
+.portfolio__button:hover,
+.portfolio__button:focus {
+  background-color: hsla(45, 100%, 57%, 0.3);
+  color: white;
+}
+
+/* ---- Sections Theme Rules ---- */
+
+/* ===== About Page ===== */
+
+section {
+  position: relative;
+  min-height: calc(100vh - 52px);
+  margin-top: 52px;
+  width: 100vw;
+  transition: animation 0.5s;
+  overflow: hidden;
+}
+
+.about__container,
+.service__container {
+  margin-block: 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+  margin-inline: 4em;
+}
+
+@media screen and (max-width: 520px) {
+  .about__container,
+  .service__container {
+    margin-inline: 2em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about__container,
+  .service__container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    margin-inline: 1em;
+  }
+}
+
+.about__card,
+.service__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 500px;
+  text-align: center;
+}
+
+.about__card img {
+  height: 100px;
+}
+
+.about__card p,
+.service__card p {
+  color: lightgray;
+}
+
+.landing__container {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ======== Services Page ========= */
+
+.service__header {
+  position: relative;
+  z-index: 2;
+}
+
+.service__header::before {
+  position: absolute;
+  content: "";
+  left: -0.6em;
+  width: 0.3em;
+  height: 100%;
+  background-color: var(--mainColor, #ffc725);
+}
+
+.service__header::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: hsla(45, 100%, 57%, 0.3);
+  z-index: -1;
+}
+
+/* ======== Portfolio Page ========= */
+
+.portfolio__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-inline: 4em;
+}
+
+@media screen and (max-width: 520px) {
+  .portfolio__container {
+    margin-inline: 1em;
+  }
+}
+
+.portfolio__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  max-width: 20em;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  margin: 1em;
+}
+
+.portfolio_img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.portfolio_img img {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.portfolio__card:hover .portfolio_img img {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.portfolio__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--whiteColor, #fff);
+  padding: 0 1em 1em;
+}
+
+.portfolio__button {
+  outline: none;
+  margin-top: 1em;
+  background-color: transparent;
+  border: 1px solid var(--mainColor, #ffc725);
+  color: var(--mainColor, #ffc725);
+  padding: 0.5em 1.5em;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+
+/* ======= Contact Page ======= */
+
+.contact__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4em;
+  margin-inline: 4em;
+}
+
+@media screen and (max-width: 520px) {
+  .contact__container {
+    margin-inline: 1em;
+  }
+}
+
+.contact__email a {
+  color: var(--mainColor, #ffc725);
+  text-decoration: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 320px) {
+  .contact__email a {
+    font-size: 1em;
+  }
+}
+
+.contact__wrapper {
+  width: 100%;
+  max-width: 30em;
+}
+
+.contact__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact__form input,
+.contact__form textarea {
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+  border-radius: 0.3em;
+  margin-bottom: 1em;
+  font-family: inherit;
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+}
+
+.contact__form input:hover,
+.contact__form input:focus,
+.contact__form textarea:hover,
+.contact__form textarea:focus {
+  -webkit-box-shadow: 0 0 0 2px var(--mainColor, #ffc725);
+  -moz-box-shadow: 0 0 0 2px var(--mainColor, #ffc725);
+  box-shadow: 0 0 0 2px var(--mainColor, #ffc725);
+}
+
+.contact__form textarea {
+  resize: none;
+}
+
+.contact__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.full__size__btn {
+  width: 45%;
+  font-size: 1.3em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+}
+
+@media screen and (max-width: 520px) {
+  .full__size__btn {
+    width: 100%;
+  }
+}
+
+.contact__message {
+  margin-block: 1em;
+}
+
+.contact__message,
+.contact__message__success,
+.contact__message__failed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact__message__success,
+.contact__message__failed {
+  color: whitesmoke;
+  padding: 1em;
+  border-radius: 0.5em;
+  animation: popUp 1500ms forwards;
+  transition: animation 1s;
+  display: none;
+}
+
+.contact__message__success {
+  color: #2b7515;
+  background-color: #ecffd6;
+  border: 1px solid #617c42;
+}
+
+.contact__message__failed {
+  color: #ba3939;
+  background-color: #ffe0e0;
+  border: 1px solid #a33a3a;
+}
+
+.contact__message__success h4,
+.contact__message__success p,
+.contact__message__failed h4,
+.contact__message__failed p {
+  margin: 0;
+  text-align: center;
+}
+
+/* Background Circles */
+/* Note that background circles are created with psuedo elements before and after */
+/* Circles appear to be random do to use of :nth-of-type psuedo class */
+.main__hero {
+  position: relative;
+}
+
+.main__hero::before,
+.main__hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.187);
+  z-index: -5;
+  animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+.main__hero::before {
+  width: 5em;
+  height: 5em;
+  top: 3em;
+  left: 3em;
+}
+.main__hero::after {
+  width: 7em;
+  height: 7em;
+  bottom: 3em;
+  right: 3em;
+  animation-delay: 1s;
+}
+
+section:nth-of-type(odd) .landing__container::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.187);
+  position: absolute;
+  z-index: -5;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+section:nth-of-type(even) .landing__container::before {
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  position: absolute;
+  top: 3em;
+  left: 3em;
+  z-index: -5;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n) .landing__container::after,
+section:nth-of-type(2n) .landing__container::after {
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  position: absolute;
+  right: 0;
+  bottom: 2em;
+  z-index: -5;
+  width: 12vh;
+  height: 12vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  position: absolute;
+  right: 20vw;
+  bottom: 5em;
+  z-index: -5;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: active class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+section.active {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+section.active .landing__container::before {
+  opacity: 1;
+  animation: rotate 4s linear 0s infinite forwards;
+}
+
+section.active .landing__container::after {
+  opacity: 1;
+  animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+/* Section Active Styles Keyframe Animations */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) translate(-1em) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-1em) rotate(-360deg);
+  }
+}
+
+/* animation to pop up the section cards when showing inside the viewport */
+.animate__sections {
+  animation: popUp 1800ms forwards;
+  transition: animation 1s;
+}
+
+@keyframes popUp {
+  from {
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    transform: scale(0.3);
+    opacity: 0.2;
+  }
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Footer Styles */
+.page__footer {
+  background: #000;
+  padding: 3em;
+  color: var(--whiteColor, #fff);
+}
+
+.page__footer p {
+  color: var(--whiteColor, #fff);
+}
